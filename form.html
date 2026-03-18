@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <title>NexusCRM — Добавить клиента</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ── Navigation ── -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="NexusCRM">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </span>
+        <span class="logo-text">NexusCRM</span>
+      </a>
+
+      <nav class="nav-links" role="navigation">
+        <a href="index.html" class="nav-link">Клиенты</a>
+        <a href="form.html" class="nav-link">Добавить</a>
+        <a href="stats.html" class="nav-link">Статистика</a>
+        <a href="about.html" class="nav-link">О проекте</a>
+      </nav>
+
+      <a href="index.html" class="nav-cta btn-ghost" style="padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;color:var(--txt2);border:1px solid var(--border);display:flex;align-items:center;gap:6px;transition:all .2s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        К списку
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-content form-page">
+    <div class="container">
+
+      <!-- ── Hero ── -->
+      <div class="form-hero">
+        <h1 id="pageTitle">Новый клиент</h1>
+        <p id="pageSubtitle">Заполните информацию о клиенте</p>
+      </div>
+
+      <!-- ── Form Card ── -->
+      <div class="form-card">
+        <form id="clientForm" novalidate>
+
+          <!-- Name -->
+          <div class="field-group">
+            <label class="field-label" for="fullName">
+              Полное имя <span class="field-required">*</span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              class="field-input"
+              placeholder="Иван Иванов"
+              maxlength="120"
+            />
+          </div>
+
+          <!-- Phone + Email -->
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="phone">
+                Телефон <span class="field-required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                class="field-input"
+                placeholder="+7 (999) 000-00-00"
+                maxlength="30"
+              />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="email">
+                Email <span class="field-required">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                class="field-input"
+                placeholder="client@example.com"
+                maxlength="120"
+              />
+            </div>
+          </div>
+
+          <!-- Status + Date -->
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="status">Статус</label>
+              <select id="status" class="field-select">
+                <option value="new">🔵 Новый</option>
+                <option value="active">🟡 В работе</option>
+                <option value="completed">🟢 Завершён</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="createdAt">Дата добавления</label>
+              <input
+                type="date"
+                id="createdAt"
+                class="field-input"
+              />
+            </div>
+          </div>
+
+          <!-- Comment -->
+          <div class="field-group">
+            <label class="field-label" for="comment">Комментарий</label>
+            <textarea
+              id="comment"
+              class="field-textarea"
+              placeholder="Заметки о клиенте, особые условия, история взаимодействия…"
+              maxlength="500"
+            ></textarea>
+            <span class="field-hint">До 500 символов</span>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="button" id="cancelBtn" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+              </svg>
+              Отмена
+            </button>
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Сохранить клиента
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    NexusCRM &copy; 2026 · NOXQD &middot; <a href="mailto:art303750@gmail.com" style="color:var(--accent-l)">art303750@gmail.com</a>
+  </footer>
+
+</div>
+<script type="module" src="js/form.js?v=4"></script>
+</body>
+</html>

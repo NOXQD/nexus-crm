@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusCRM — Статистика</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ── Navigation ── -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="NexusCRM">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </span>
+        <span class="logo-text">NexusCRM</span>
+      </a>
+
+      <nav class="nav-links" role="navigation">
+        <a href="index.html" class="nav-link">Клиенты</a>
+        <a href="form.html" class="nav-link">Добавить</a>
+        <a href="stats.html" class="nav-link">Статистика</a>
+        <a href="about.html" class="nav-link">О проекте</a>
+      </nav>
+
+      <a href="form.html" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Добавить
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-content stats-page">
+
+    <!-- ── Hero ── -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Аналитика</span>
+          <h1 class="hero-title"><span>Статистика</span> базы</h1>
+          <p class="hero-sub">Обзор показателей вашей клиентской базы</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ── KPI Cards ── -->
+      <div class="kpi-grid section-gap">
+
+        <div class="kpi-card" style="animation-delay:.05s">
+          <div class="kpi-icon kpi-icon-total">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div class="kpi-value" id="statTotal">0</div>
+          <div class="kpi-label">Всего клиентов</div>
+        </div>
+
+        <div class="kpi-card" style="animation-delay:.1s">
+          <div class="kpi-icon kpi-icon-new">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+          </div>
+          <div class="kpi-value" style="color:var(--new)" id="statNew">0</div>
+          <div class="kpi-label">Новые</div>
+        </div>
+
+        <div class="kpi-card" style="animation-delay:.15s">
+          <div class="kpi-icon kpi-icon-active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="kpi-value" style="color:var(--active)" id="statActive">0</div>
+          <div class="kpi-label">В работе</div>
+        </div>
+
+        <div class="kpi-card" style="animation-delay:.2s">
+          <div class="kpi-icon kpi-icon-done">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="kpi-value" style="color:var(--done)" id="statCompleted">0</div>
+          <div class="kpi-label">Завершённые</div>
+        </div>
+
+        <div class="kpi-card" style="animation-delay:.25s">
+          <div class="kpi-icon kpi-icon-conv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="20" x2="12" y2="10"/>
+              <line x1="18" y1="20" x2="18" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="16"/>
+            </svg>
+          </div>
+          <div class="kpi-value" style="color:var(--purple)" id="statConversion">0%</div>
+          <div class="kpi-label">Конверсия</div>
+        </div>
+
+      </div>
+
+      <!-- ── Main grid ── -->
+      <div class="stats-grid section-gap">
+
+        <!-- Status breakdown -->
+        <div class="stats-card" style="animation-delay:.1s">
+          <h2 class="stats-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.21 15.89A10 10 0 118 2.83"/>
+              <path d="M22 12A10 10 0 0012 2v10z"/>
+            </svg>
+            Разбивка по статусам
+          </h2>
+          <div class="breakdown-list" id="statusBreakdown">
+            <!-- Rendered by stats.js -->
+          </div>
+        </div>
+
+        <!-- Monthly bar chart -->
+        <div class="stats-card" style="animation-delay:.15s">
+          <h2 class="stats-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="20" x2="12" y2="10"/>
+              <line x1="18" y1="20" x2="18" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="16"/>
+            </svg>
+            Активность по месяцам
+          </h2>
+          <div class="bar-chart" id="monthlyActivity">
+            <!-- Rendered by stats.js -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Recent ── -->
+      <div class="stats-card" style="animation-delay:.2s">
+        <h2 class="stats-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Последние клиенты
+        </h2>
+        <div class="recent-list" id="recentClients">
+          <!-- Rendered by stats.js -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    NexusCRM &copy; 2026 · NOXQD &middot; <a href="mailto:art303750@gmail.com" style="color:var(--accent-l)">art303750@gmail.com</a>
+  </footer>
+
+</div>
+<script type="module" src="js/stats.js?v=4"></script>
+</body>
+</html>
